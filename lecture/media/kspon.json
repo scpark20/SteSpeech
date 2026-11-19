@@ -1,0 +1,11 @@
+{
+  "transcription": "어 일단은 억지로 과장해서 이렇게 하는 것보다 진실된 마음으로 이걸 어떻게 전달할 수 있을까 공감을 시킬 수 있을까 해서 좀",
+  "raw_transcription": "어/ 일단은 억지로 과장해서 이렇게 하는 것보다 진실된 마음으로 이걸 어떻게 전달할 수 있을까 공감을 시킬 수 있을까 해서 좀",
+  "orthographic_transcription": "어 일단은 억지로 과장해서 이렇게 하는 것보다 진실된 마음으로 이걸 어떻게 전달할 수 있을까 공감을 시킬 수 있을까 해서 좀",
+  "phonetic_transcription": "어 일단은 억지로 과장해서 이렇게 하는 것보다 진실된 마음으로 이걸 어떻게 전달할 수 있을까 공감을 시킬 수 있을까 해서 좀",
+  "dataset": "jubang0219/KsponSpeech",
+  "split": "eval_clean",
+  "row": 0,
+  "source": "https://huggingface.co/datasets/jubang0219/KsponSpeech",
+  "bytes": 513132
+}

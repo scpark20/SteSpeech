@@ -1,0 +1,511 @@
+{
+  "kss_speech": {
+    "file": "figures/kss_speech.svg",
+    "chapter": 10,
+    "title": "실제 발화 하나를 세 가지 표현으로 보기",
+    "notes": [
+      "세 그림의 가로축은 동일한 실제 발화의 시간입니다. 세로 줄은 음성의 순간 변화, 가로 무늬는 지속되는 주파수 성분을 보여 줍니다.",
+      "STFT와 mel은 보기 편하게 각 표현의 최대값 대비 dB로 표시했습니다. 학습 코드는 HTK magnitude mel의 자연로그를 사용합니다.",
+      "n_fft=1024, hop=256, periodic Hann, center zero padding. 이 그림은 모델 출력이나 인식 성능이 아닙니다."
+    ],
+    "source": "https://huggingface.co/datasets/Bingsu/KSS_Dataset",
+    "kind": "실제 공개 음성에서 직접 계산"
+  },
+  "kspon_speech": {
+    "file": "figures/kspon_speech.svg",
+    "chapter": 4,
+    "title": "실제 발화 하나를 세 가지 표현으로 보기",
+    "notes": [
+      "세 그림의 가로축은 동일한 실제 발화의 시간입니다. 세로 줄은 음성의 순간 변화, 가로 무늬는 지속되는 주파수 성분을 보여 줍니다.",
+      "STFT와 mel은 보기 편하게 각 표현의 최대값 대비 dB로 표시했습니다. 학습 코드는 HTK magnitude mel의 자연로그를 사용합니다.",
+      "n_fft=512, hop=160, periodic Hann, center zero padding. 이 그림은 모델 출력이나 인식 성능이 아닙니다."
+    ],
+    "source": "https://huggingface.co/datasets/jubang0219/KsponSpeech",
+    "kind": "실제 공개 음성에서 직접 계산"
+  },
+  "wave_zoom": {
+    "file": "figures/wave_zoom.svg",
+    "chapter": 1,
+    "title": "발화 전체와 45 ms 확대는 서로 다른 정보를 줍니다",
+    "notes": [
+      "위에서는 발화의 시작·끝과 에너지 변화를 봅니다. 아래에서는 음성의 짧은 주기 구조를 봅니다.",
+      "강한 에너지 구간을 자동 선택했습니다. 사람이 발음 경계를 판정하거나 강제 정렬한 결과가 아닙니다."
+    ],
+    "source": "KSS 공개 예제 · 직접 계산",
+    "kind": "실제 공개 음성"
+  },
+  "resolution": {
+    "file": "figures/resolution.svg",
+    "chapter": 2,
+    "title": "같은 음성에서 window만 바꾸면 무엇이 달라질까요?",
+    "notes": [
+      "네 패널은 같은 KSS 발화입니다. hop은 128 samples로 고정했습니다.",
+      "긴 window는 주파수 성분을 더 좁게 분리하지만 시간 변화가 넓게 섞입니다. hop을 줄이는 것과 다른 변화입니다."
+    ],
+    "source": "KSS 공개 예제 · STFT 직접 계산",
+    "kind": "실제 음성 / 전처리 비교"
+  },
+  "mel_filters": {
+    "file": "figures/mel_filters.svg",
+    "chapter": 2,
+    "title": "Mel은 주파수 축을 단순히 그림으로 늘리는 연산이 아닙니다",
+    "notes": [
+      "각 삼각 필터가 이웃 FFT bin을 가중합합니다. 낮은 주파수에 더 촘촘한 구간을 둡니다.",
+      "mel = W × |X|. 이 강의 구현은 power 대신 magnitude를 합산한 뒤 자연로그를 적용합니다."
+    ],
+    "source": "HTK mel 수식 / KSS 공개 예제",
+    "kind": "실제 음성 + 해석적 필터"
+  },
+  "specaugment": {
+    "file": "figures/specaugment.svg",
+    "chapter": 8,
+    "title": "음성 내용을 바꾸지 않고 일부 특징을 가립니다",
+    "notes": [
+      "세로 띠는 특정 시간 구간, 가로 띠는 특정 주파수 구간의 정보를 제거합니다.",
+      "시각화를 위해 가린 위치를 어둡게 표시했습니다. 실제 code/asr.py는 자연로그 특징의 해당 값을 0으로 설정합니다.",
+      "dev/test에는 이 증강을 적용하지 않습니다. 원 파형에 잡음을 더하는 연산과 다릅니다."
+    ],
+    "source": "Park et al., SpecAugment (2019) / KsponSpeech 공개 예제",
+    "kind": "실제 특징 + 설명용 마스크"
+  },
+  "task_map": {
+    "file": "figures/task_map.svg",
+    "chapter": 0,
+    "title": "세 작업은 입력과 정답의 연결이 다릅니다",
+    "notes": [
+      "ASR은 파형에서 문장으로, TTS는 문장에서 파형으로 갑니다.",
+      "분리의 정답은 원래 곡의 stem입니다. 임의 분류 라벨이나 ASR 전사문이 아닙니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "project_flow": {
+    "file": "figures/project_flow.svg",
+    "chapter": 0,
+    "title": "파일 하나가 결과까지 가는 실행 경로",
+    "notes": [
+      "그림 제작에 사용한 공개 예제는 lecture/media에만 둡니다. 학습 manifest에 섞지 않습니다.",
+      "train과 evaluate는 작성되어 있지만 실행하지 않았습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "subsample": {
+    "file": "figures/subsample.svg",
+    "chapter": 3,
+    "title": "길이는 Conv1d를 통과할 때 함께 갱신합니다",
+    "notes": [
+      "텐서의 padded T와 발화별 유효 길이를 분리합니다.",
+      "0 패딩도 convolution bias·attention을 지나면 0이 아닐 수 있어 중간 mask가 필요합니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "transcription": {
+    "file": "figures/transcription.svg",
+    "chapter": 4,
+    "title": "전사 규칙을 고르면 vocabulary와 평가 규칙도 고정합니다",
+    "notes": [
+      "발음 전사와 철자 전사를 임의 혼합하면 같은 발화에 서로 다른 정답을 주게 됩니다.",
+      "raw 문자열은 보존하되 학습에 쓰는 표현을 manifest에 명확히 기록합니다."
+    ],
+    "source": "KsponSpeech 논문 §3 / code/data.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "conformer": {
+    "file": "figures/conformer.svg",
+    "chapter": 6,
+    "title": "Conformer: 넓은 문맥과 가까운 시간 패턴을 함께 처리합니다",
+    "notes": [
+      "실제 code/asr.py의 흐름입니다. 각 submodule의 잔차 덧셈 뒤 유효 길이 mask를 적용합니다.",
+      "원 논문은 relative position과 convolution BatchNorm을 사용합니다. 이 구현은 sinusoidal position과 LayerNorm으로 단순화했습니다."
+    ],
+    "source": "Gulati et al. (2020), Fig. 1–2 / code/asr.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "conv_module": {
+    "file": "figures/conv_module.svg",
+    "chapter": 6,
+    "title": "Conformer convolution module 내부를 펼쳐 봅니다",
+    "notes": [
+      "Pointwise는 채널을 섞고 depthwise는 각 채널의 시간 패턴을 봅니다.",
+      "GLU의 절반은 값, 나머지 절반은 sigmoid gate가 되어 곱해집니다."
+    ],
+    "source": "Conformer Fig. 2를 실제 구현에 맞게 재작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "decoder": {
+    "file": "figures/decoder.svg",
+    "chapter": 7,
+    "title": "Greedy와 prefix beam은 같은 확률을 다르게 모읍니다",
+    "notes": [
+      "최고 확률 경로 하나가 가장 확률 높은 문장과 항상 같지는 않습니다.",
+      "code/asr.py는 외부 언어 모델을 사용하지 않습니다. beam width는 탐색량과 근사 오차를 바꿉니다."
+    ],
+    "source": "CTC / code/asr.py prefix_beam",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "train_step": {
+    "file": "figures/train_step.svg",
+    "chapter": 8,
+    "title": "한 training step에서 무엇이 바뀌는가",
+    "notes": [
+      "이 그림은 code/engine.py의 실행 순서입니다. 이번 작업에서는 backward와 optimizer.step을 호출하지 않았습니다.",
+      "학습 loss와 dev loss는 서로 다른 자료에서 계산합니다. test는 선택 기준으로 사용하지 않습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "split_protocol": {
+    "file": "figures/split_protocol.svg",
+    "chapter": 9,
+    "title": "훈련·선택·최종 평가를 분리해야 숫자가 의미를 가집니다",
+    "notes": [
+      "CER/WER는 reference 정규화 규약에 민감합니다. 공백 제거 여부와 token 단위를 적습니다.",
+      "KsponSpeech 공개 그림용 예제는 eval_clean에서 받은 한 발화이며 학습에 사용하지 않습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "jamo": {
+    "file": "figures/jamo.svg",
+    "chapter": 10,
+    "title": "문자를 토큰으로 바꾸는 과정도 모델 설계입니다",
+    "notes": [
+      "KSS의 expanded_script를 사용하고 숫자·영문이 남으면 명시적으로 오류를 냅니다. 자동 발음 규칙을 감으로 만들지 않습니다.",
+      "그림의 “20분 → 이십 분”은 정규화 원리 예제이며 실제 발화 정렬 결과가 아닙니다."
+    ],
+    "source": "KSS 데이터 정의 / code/data.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "alignment_contract": {
+    "file": "figures/alignment_contract.svg",
+    "chapter": 11,
+    "title": "Duration은 음성 프레임과 텍스트 토큰을 이어 주는 다리입니다",
+    "notes": [
+      "MFA 음소 경계를 그대로 NFD 자모 duration이라고 저장하면 안 됩니다.",
+      "본 구현은 실제 alignment JSONL을 요구합니다. 가짜 균등 duration으로 TTS 학습이 준비되었다고 하지 않습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "fastspeech2": {
+    "file": "figures/fastspeech2.svg",
+    "chapter": 12,
+    "title": "FastSpeech 2 교육용 구현의 전체 tensor 흐름",
+    "notes": [
+      "학습에서는 정답 duration/pitch/energy를 넣고 각 predictor에도 별도 loss를 줍니다. 추론에서는 predictor의 값을 사용합니다.",
+      "논문의 pitch CWT·양자화 임베딩 대신 frame-level log-F0와 연속 Linear projection을 쓴 교육용 변형입니다."
+    ],
+    "source": "Ren et al. (2020), Fig. 1 / code/tts.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "hifigan": {
+    "file": "figures/hifigan.svg",
+    "chapter": 13,
+    "title": "HiFi-GAN: 80개 mel 채널에서 샘플 파형으로",
+    "notes": [
+      "총 배율은 8×8×2×2=256으로 mel hop=256과 맞습니다.",
+      "각 MRF는 kernel 3·7·11의 residual branch를 평균합니다. 채널 폭은 원 논문보다 작은 교육용 설정입니다."
+    ],
+    "source": "Kong et al. (2020), Fig. 1 / code/vocoder.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "gan": {
+    "file": "figures/gan.svg",
+    "chapter": 14,
+    "title": "판별기와 생성기는 서로 다른 gradient 경로로 업데이트됩니다",
+    "notes": [
+      "D step에서는 fake.detach()로 G를 갱신하지 않습니다. G step에서는 D 파라미터만 고정하고 입력에 대한 gradient는 유지합니다.",
+      "그림은 구현된 학습 순서를 설명합니다. 실제 학습·loss 곡선 생성은 실행하지 않았습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "tts_eval": {
+    "file": "figures/tts_eval.svg",
+    "chapter": 15,
+    "title": "Mel 오차 하나가 음성 품질 전체를 말하지 않습니다",
+    "notes": [
+      "정답 duration을 준 mel loss는 자유 추론의 발음·길이 오류를 가릴 수 있습니다.",
+      "청취 실험을 실행하지 않았으므로 MOS 수치나 청취 품질 점수를 만들지 않습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "separator": {
+    "file": "figures/separator.svg",
+    "chapter": 18,
+    "title": "음악 분리 모델의 입력·네 head·복원 경로",
+    "notes": [
+      "각 stem이 자기 모델을 갖습니다. 출력은 동일 길이의 스테레오 4개입니다.",
+      "Open-Unmix의 multichannel Wiener EM을 구현한 것은 아닙니다. 여기서는 power ratio mask와 mixture phase를 사용합니다."
+    ],
+    "source": "Open-Unmix / code/separation.py",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "bilstm": {
+    "file": "figures/bilstm.svg",
+    "chapter": 18,
+    "title": "한 SourceEstimator 안에서는 시간의 양쪽을 봅니다",
+    "notes": [
+      "BiLSTM은 미래 frame을 보므로 이 모델을 그대로 온라인 causal 시스템이라고 부를 수 없습니다.",
+      "공식 UMX의 정규화와 masking 구조를 단순화한 교육용 magnitude estimator입니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "sep_loss": {
+    "file": "figures/sep_loss.svg",
+    "chapter": 20,
+    "title": "분리 학습은 네 stem의 magnitude 정답을 함께 비교합니다",
+    "notes": [
+      "mixture와 stem은 같은 시간 구간을 잘라야 합니다. 서로 다른 crop이면 올바른 정답이 아닙니다.",
+      "독립 peak normalization은 원래 gain 관계를 깨므로 하지 않습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "checkpoint": {
+    "file": "figures/checkpoint.svg",
+    "chapter": 20,
+    "title": "재개하려면 가중치 밖의 학습 상태도 저장해야 합니다",
+    "notes": [
+      "현재 검증은 새 모델로 checkpoint를 읽어 같은 forward 출력을 얻는 것까지입니다.",
+      "재개 후 optimizer update의 동등성 검증은 학습 실행 금지 범위 때문에 하지 않았습니다."
+    ],
+    "source": "SteSpeech 구현 소스를 대조해 직접 작성",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "frontiers": {
+    "file": "figures/frontiers.svg",
+    "chapter": 22,
+    "title": "확장 모델은 표현과 시간 문맥을 바꾸는 방향으로 읽습니다",
+    "notes": [
+      "새 모델을 붙일 때 입력 계약·loss·정답·복원 경로가 무엇이 달라지는지 먼저 확인합니다.",
+      "이 페이지의 확장 모델은 읽기 대상입니다. 저장소에 구현했다고 주장하지 않습니다."
+    ],
+    "source": "Conformer / FastSpeech 2 / Hybrid Demucs / Band-Split RoFormer",
+    "kind": "직접 작성 구조도 / 실제 구현과 대응"
+  },
+  "sampling": {
+    "file": "figures/sampling.svg",
+    "chapter": 1,
+    "title": "샘플링과 양자화는 서로 다른 축의 이산화입니다",
+    "notes": [
+      "위는 시간 간격, 아래는 진폭 단계의 변화입니다. 이해를 위해 아주 적은 양자화 단계를 그렸습니다.",
+      "실제 음성 그림과 구분한 해석적 sine 예제입니다. 파일의 bit depth와 sample rate를 혼동하지 않습니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "해석적 신호 예제"
+  },
+  "masks": {
+    "file": "figures/masks.svg",
+    "chapter": 3,
+    "title": "패딩을 “빈 문맥”으로만 두면 충분하지 않습니다",
+    "notes": [
+      "흰 영역은 유효하지 않은 frame입니다. attention에서 padded key를 차단합니다.",
+      "query의 padded output은 attention 후 다시 0으로 가립니다. convolution과 loss에도 같은 유효 길이 계약을 적용합니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "개념도 / 실행 결과 아님"
+  },
+  "ctc_lattice": {
+    "file": "figures/ctc_lattice.svg",
+    "chapter": 5,
+    "title": "CTC는 정렬 하나를 고르지 않고 가능한 경로 확률을 더합니다",
+    "notes": [
+      "주황색은 가능한 경로 하나입니다. 같은 “가” state를 연속 방문한 뒤 blank를 거쳐 다음 “가”로 이동합니다.",
+      "같은 문자가 반복되면 두 state를 건너뛰는 transition이 금지됩니다. 최소 frame 수 = 문자 수 + 인접 반복 수입니다."
+    ],
+    "source": "Graves et al. (2006) / code/asr.py ctc_forward",
+    "kind": "정렬 원리 개념도"
+  },
+  "ctc_posterior": {
+    "file": "figures/ctc_posterior.svg",
+    "chapter": 5,
+    "title": "피크 사이에 blank가 많아도 문장은 짧게 복원됩니다",
+    "notes": [
+      "argmax 경로: blank, blank, 음, 음, blank, blank, 성, 성, blank, AI, AI, blank.",
+      "연속 중복을 먼저 합치고 blank를 제거하면 “음 성 AI”가 됩니다."
+    ],
+    "source": "CTC collapse 규칙",
+    "kind": "설명용 확률 행렬 / 학습 결과 아님"
+  },
+  "beam_mass": {
+    "file": "figures/beam_mass.svg",
+    "chapter": 7,
+    "title": "가장 좋은 경로와 가장 좋은 문장은 다를 수 있습니다",
+    "notes": [
+      "경로 B₁ 하나의 확률은 가장 높지만 문장 A에 대응하는 두 경로의 합이 더 큽니다.",
+      "이 숫자는 greedy와 prefix 합산의 차이를 설명하는 toy 예제이며 실제 ASR 성능이 아닙니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "설명용 확률 예제"
+  },
+  "edit_distance": {
+    "file": "figures/edit_distance.svg",
+    "chapter": 9,
+    "title": "CER의 분자는 문자 alignment에서 센 오류입니다",
+    "notes": [
+      "동일 문자는 대각선 비용 0, substitution은 1, insertion/deletion도 1입니다.",
+      "이 toy 예제의 CER은 1/4=25%입니다. 실제 corpus 결과가 아니며 corpus CER은 전체 오류 합/전체 reference 길이로 집계합니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "수식 계산 예제 / corpus 평가 아님"
+  },
+  "pitch_energy": {
+    "file": "figures/pitch_energy.svg",
+    "chapter": 11,
+    "title": "Pitch와 energy는 동일한 frame 좌표 위에 정렬합니다",
+    "notes": [
+      "F0는 60–500 Hz 범위의 자기상관 피크로 추정했습니다. 음성학적 정답이나 전문가 주석이 아닙니다.",
+      "무성음 판정과 octave 오류가 생길 수 있습니다. 모델의 음질 점수로 해석하지 않습니다."
+    ],
+    "source": "KSS 공개 예제 / code/audio.py와 같은 자기상관 규칙",
+    "kind": "실제 음성에서 측정한 전처리 특징"
+  },
+  "regulator": {
+    "file": "figures/regulator.svg",
+    "chapter": 12,
+    "title": "Length regulator는 토큰 표현을 정수 duration만큼 반복합니다",
+    "notes": [
+      "duration [2,1,3]이면 token 3개가 frame 6개로 확장됩니다.",
+      "이 duration은 연산 설명을 위한 값입니다. 실제 KSS alignment는 별도로 필요합니다."
+    ],
+    "source": "FastSpeech / code/tts.py regulate",
+    "kind": "연산 예제 / 실제 정렬 아님"
+  },
+  "mpd_mrf": {
+    "file": "figures/mpd_mrf.svg",
+    "chapter": 13,
+    "title": "판별기는 주기를, MRF는 여러 범위의 패턴을 봅니다",
+    "notes": [
+      "MPD는 주기별 reshape 후 2D convolution을 적용합니다. period는 2·3·5·7·11입니다.",
+      "오른쪽은 k=3의 dilation 위치입니다. 실제 MRF는 k=3·7·11 branch와 residual 연결을 함께 사용합니다."
+    ],
+    "source": "HiFi-GAN Fig. 1 / code/vocoder.py",
+    "kind": "개념도 / 실행 결과 아님"
+  },
+  "mel_convention": {
+    "file": "figures/mel_convention.svg",
+    "chapter": 14,
+    "title": "비슷한 색의 mel 그림이라도 실제 값의 정의가 다를 수 있습니다",
+    "notes": [
+      "두 패널은 같은 KSS 특징을 서로 다른 수치 규약으로 표현한 것입니다. 색이 비슷해도 값의 범위가 다릅니다.",
+      "사전 학습 vocoder와 연결할 때 sample rate·FFT·hop·filter·log 규칙을 모두 맞춰야 합니다."
+    ],
+    "source": "KSS 공개 예제 / code/audio.py LogMel",
+    "kind": "실제 음성 / 수치 규약 비교"
+  },
+  "mel_shift": {
+    "file": "figures/mel_shift.svg",
+    "chapter": 15,
+    "title": "시간 정렬이 다르면 framewise 오차 해석도 달라집니다",
+    "notes": [
+      "아래는 위 특징을 수학적으로 이동한 설명 예제입니다. TTS 모델의 출력이나 성능 비교가 아닙니다.",
+      "자유 생성은 duration 자체가 달라질 수 있어 무조건 같은 frame끼리 뺀 숫자로 음질을 판단하지 않습니다."
+    ],
+    "source": "KSS 공개 예제 / 명시적 시간 이동",
+    "kind": "실제 특징 + 통제된 변형"
+  },
+  "phase": {
+    "file": "figures/phase.svg",
+    "chapter": 17,
+    "title": "Magnitude만 보고 섞인 신호를 이해할 수 없는 이유",
+    "notes": [
+      "동일 주파수의 두 신호가 반대 phase이면 합에서 완전히 상쇄됩니다.",
+      "|S₁+S₂|는 보통 |S₁|+|S₂|와 다릅니다. mixture phase 재사용의 한계를 설명하는 극단적인 예입니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "해석적 신호 / phase 설명"
+  },
+  "overlap": {
+    "file": "figures/overlap.svg",
+    "chapter": 19,
+    "title": "Chunk 경계의 gain 변화는 weight 합으로 정규화합니다",
+    "notes": [
+      "끝부분은 짧은 valid 길이만 누적하고 원래 N samples로 반환합니다.",
+      "그림은 실제 separate_long의 window 규칙을 계산한 것입니다. 분리 모델을 실행한 결과가 아닙니다."
+    ],
+    "source": "code/separation.py separate_long",
+    "kind": "window 수치 계산"
+  },
+  "sisdr": {
+    "file": "figures/sisdr.svg",
+    "chapter": 21,
+    "title": "SI-SDR는 reference 방향으로 투영해 scale을 제거합니다",
+    "notes": [
+      "이 2차원 그림은 긴 waveform 벡터의 투영을 단순화한 것입니다. 실제 음악 성능 점수가 아닙니다.",
+      "BSS Eval SDR와 다른 지표입니다. 무음 reference는 분모 정의가 불안정하므로 별도 상태로 보고합니다."
+    ],
+    "source": "Le Roux et al. (2019), SDR—half-baked or well done?",
+    "kind": "벡터 기하 설명"
+  },
+  "bands": {
+    "file": "figures/bands.svg",
+    "chapter": 22,
+    "title": "Band 모델은 음악의 주파수 구조를 모듈에 직접 반영합니다",
+    "notes": [
+      "왼쪽은 설명용 주파수 격자입니다. 실제 mel이나 모델 attention map이 아닙니다.",
+      "Band-Split RoFormer를 읽을 때 band 정의·시간/대역 문맥·mask 출력의 연결을 확인합니다."
+    ],
+    "source": "Lu et al. (2023), Band-Split RoPE Transformer",
+    "kind": "논문 개념 재작성"
+  },
+  "music_stems": {
+    "file": "figures/music_stems.svg",
+    "chapter": 16,
+    "title": "실제 mixture와 네 stem을 같은 시간축으로 비교합니다",
+    "notes": [
+      "다섯 신호는 같은 곡의 같은 7초 구간입니다. 신호별 peak normalization을 하지 않았습니다.",
+      "공식 SiSEC18 7초 WAV preview입니다. MUSDB18-HQ 전체 데이터의 대역폭이나 분리 모델 출력이라고 표기하지 않습니다."
+    ],
+    "source": "Rafii et al. / SiSEC18-MUS 7s Excerpts · Zenodo 1256064",
+    "kind": "실제 공개 음악과 정답 stem"
+  },
+  "stereo": {
+    "file": "figures/stereo.svg",
+    "chapter": 16,
+    "title": "스테레오의 두 채널을 하나로 합치면 정보가 사라집니다",
+    "notes": [
+      "같은 mixture의 2.00–2.08초 Left/Right입니다. 채널별 진폭과 시점 구조를 유지합니다.",
+      "실제 분리 입력은 [B,2,N]입니다. ASR의 mono 전처리를 음악 분리에 그대로 복사하면 안 됩니다."
+    ],
+    "source": "MUSDB 공식 7초 preview · 직접 계산",
+    "kind": "실제 공개 음악"
+  },
+  "oracle_masks": {
+    "file": "figures/oracle_masks.svg",
+    "chapter": 17,
+    "title": "정답 stem으로 만든 power ratio mask를 살펴봅니다",
+    "notes": [
+      "각 시간·주파수 위치에서 네 mask의 합은 1입니다. 밝은 영역은 해당 stem의 상대적 power가 큰 곳입니다.",
+      "정답 stem을 이용한 oracle 그림입니다. 학습되지 않은 모델의 예측 mask나 분리 성능 결과가 아닙니다."
+    ],
+    "source": "MUSDB 공개 preview / Mₛ=|Sₛ|² ÷ Σ|Sⱼ|²",
+    "kind": "실제 정답으로 계산한 oracle mask"
+  },
+  "crop_sync": {
+    "file": "figures/crop_sync.svg",
+    "chapter": 19,
+    "title": "Crop과 chunk는 모든 채널·stem에서 같은 위치여야 합니다",
+    "notes": [
+      "그림은 7초 예제에 적용할 수 있는 6초 chunk와 1초 overlap 위치를 설명합니다. 실제 모델 추론 결과는 아닙니다.",
+      "각 stem마다 무작위 시작점을 다르게 뽑으면 mixture와 정답의 대응이 깨집니다."
+    ],
+    "source": "SteSpeech 저자 작성",
+    "kind": "실제 예제 길이에 대한 인덱스 개념도"
+  },
+  "mixture_sum": {
+    "file": "figures/mixture_sum.svg",
+    "chapter": 21,
+    "title": "먼저 데이터 관계를 확인하고 모델 점수와 구분합니다",
+    "notes": [
+      "위의 파형은 정답 파일끼리 비교한 것입니다. 분리 모델을 적용하거나 SDR을 평가한 것이 아닙니다.",
+      "예제 release의 저장·압축 차이에 따른 잔차와 모델의 분리 오류를 혼동하지 않습니다."
+    ],
+    "source": "MUSDB 공식 7초 preview · 파일 관계 계산",
+    "kind": "공개 파일의 관계 / 모델 평가 아님"
+  }
+}

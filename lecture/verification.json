@@ -1,0 +1,84 @@
+{
+  "device": "cuda:0",
+  "torch": "2.9.1+cu128",
+  "training_executed": false,
+  "dataset_downloaded": false,
+  "backward_executed": false,
+  "checks": {
+    "audio_roundtrip": {
+      "maximum_error": 6.556510925292969e-07
+    },
+    "ctc_decoder_and_edit_distance": {
+      "passed": true
+    },
+    "conformer_default": {
+      "shape": [
+        2,
+        24,
+        12
+      ],
+      "parameters": 2032428
+    },
+    "fastspeech_default": {
+      "shape": [
+        2,
+        6,
+        80
+      ],
+      "parameters": 3993299
+    },
+    "hifigan_default": {
+      "shape": [
+        1,
+        1,
+        4096
+      ],
+      "parameters": 928514
+    },
+    "separation_default_and_chunking": {
+      "shape": [
+        4,
+        2,
+        5330
+      ],
+      "parameters": 3432456
+    },
+    "fresh_model_checkpoint_roundtrip": {
+      "optimizer_resume_tested": false
+    },
+    "synthetic_manifest_adapters": {
+      "passed": true
+    },
+    "synthetic_inference_file_paths": {
+      "quality_evaluated": false
+    }
+  },
+  "peak_allocated_mib": 118.845703125,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "source_sha256": {
+    "code/asr.py": "773dfd8bbf36fb884cf6050950682dcbefb7db3865e035e2b3a1832816133a75",
+    "code/audio.py": "3efb618b8efcafac82ed0bafb478c42a51bc6c7caccc664b1bc1e5f30849bc7e",
+    "code/data.py": "1bba1eb891eb59a7dcc01f46a0fe4e662a4ab3cf8e9f2da48f471761ac63db62",
+    "code/engine.py": "5e2b23894eeb3ee02169a1504ea40151b25362d02b5f254decb4fc102d41658a",
+    "code/metrics.py": "f99346d35a0e50501b69f629ccfc4ba5e624577795aef91c8c1090b4f2e63d67",
+    "code/separation.py": "5ffc8b026b9edf9370dff2cb2df97050bef16e857607fbc1797a8a380bec4aa0",
+    "code/tts.py": "166e4af23a3c2770a63db04b8357027eb8af0089619b620474bad4767c5e192a",
+    "code/vocoder.py": "2aa41d2a50d8871b0a0ce306a8c69f4c5140391246b62010f433411e6abd398e",
+    "scripts/ste_speech.py": "b4268f1b9e73d0780f883bffb391ea5faec4b10f0df00de9ebfd92d04256af95",
+    "scripts/verify.py": "8fca20f922700126ad93c92ec323adb05729224a5a8d589e64dfb343907ba534"
+  },
+  "python": "/home/scpark/miniconda3/envs/moss_tts/bin/python",
+  "scope": "Synthetic model-structure checks on server 67. Excludes later approved public lecture examples; those are documented in lecture/media/provenance.json.",
+  "lecture_review": {
+    "pages": 230,
+    "figures": 46,
+    "all_pages_rendered": true,
+    "all_pages_visually_reviewed": true,
+    "layout_overflow": 0,
+    "pdf_sha256": "9e18d48817bac52aad7ade839fc491948f32068fd1a75a6945d42d0ca72c471a",
+    "public_examples": "KSS 1 utterance; KsponSpeech 1 utterance; one official 7-second music preview with 4 stems",
+    "training_executed": false,
+    "model_dataset_evaluation_executed": false,
+    "browser_display_verified": false
+  }
+}

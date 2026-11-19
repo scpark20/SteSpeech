@@ -1,0 +1,14 @@
+{
+  "source": "https://zenodo.org/records/1256064",
+  "archive": "MUSDB18-7-WAV.zip",
+  "track": "train/A Classic Education - NightOwl",
+  "description": "Official SiSEC18-MUS 7-second WAV excerpts. Preview release, not a claim of MUSDB18-HQ full-band provenance.",
+  "members": [
+    "train/A Classic Education - NightOwl/vocals.wav",
+    "train/A Classic Education - NightOwl/drums.wav",
+    "train/A Classic Education - NightOwl/bass.wav",
+    "train/A Classic Education - NightOwl/other.wav",
+    "train/A Classic Education - NightOwl/mixture.wav"
+  ],
+  "download_bytes": 6866848
+}

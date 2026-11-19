@@ -1,0 +1,12 @@
+{
+  "original_script": "그는 괜찮은 척하려고 애쓰는 것 같았다.",
+  "expanded_script": "그는 괜찮은 척하려고 애쓰는 것 같았다.",
+  "decomposed_script": "그는 괜찮은 척하려고 애쓰는 것 같았다.",
+  "duration": 3.5,
+  "english_translation": "He seemed to be pretending to be okay.",
+  "dataset": "Bingsu/KSS_Dataset",
+  "split": "train",
+  "row": 0,
+  "source": "https://huggingface.co/datasets/Bingsu/KSS_Dataset",
+  "bytes": 622124
+}

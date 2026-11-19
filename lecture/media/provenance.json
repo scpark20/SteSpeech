@@ -1,0 +1,73 @@
+{
+  "purpose": "Public examples for lecture figures only, not training or model evaluation.",
+  "audio": [
+    {
+      "file": "kspon.wav",
+      "sample_rate": 16000,
+      "frames": 256544,
+      "channels": 1,
+      "duration": 16.034,
+      "subtype": "PCM_16",
+      "sha256": "ab96f40624c69e6cca84fab04ed8ca5a7a9bb0f8d2d01dd1c351a577bcbc9c91"
+    },
+    {
+      "file": "kss.wav",
+      "sample_rate": 44100,
+      "frames": 155520,
+      "channels": 2,
+      "duration": 3.526530612244898,
+      "subtype": "PCM_16",
+      "sha256": "a426d754b02a414f145287a9c22a11fd90197b599de2acc2a90778bd490f9b9c"
+    },
+    {
+      "file": "music_bass.wav",
+      "sample_rate": 44100,
+      "frames": 308700,
+      "channels": 2,
+      "duration": 7.0,
+      "subtype": "PCM_16",
+      "sha256": "02f5c8d2f7218fa1fda2f24cfac55d0a55772ac8fa77df1730b7198d0da007f7"
+    },
+    {
+      "file": "music_drums.wav",
+      "sample_rate": 44100,
+      "frames": 308700,
+      "channels": 2,
+      "duration": 7.0,
+      "subtype": "PCM_16",
+      "sha256": "715d44588e0e1f78119f3c135bed6b8f2371bd323b5a3ccf01f77c5398be0f31"
+    },
+    {
+      "file": "music_mixture.wav",
+      "sample_rate": 44100,
+      "frames": 308700,
+      "channels": 2,
+      "duration": 7.0,
+      "subtype": "PCM_16",
+      "sha256": "25803be8ab4f177de3c831fd058f920c1379b9cb82541ed0eae78b1eaf52e2a6"
+    },
+    {
+      "file": "music_other.wav",
+      "sample_rate": 44100,
+      "frames": 308700,
+      "channels": 2,
+      "duration": 7.0,
+      "subtype": "PCM_16",
+      "sha256": "403696bff8ca070f827561b45203e843f648187867a64c9c881bf5d6eec1517e"
+    },
+    {
+      "file": "music_vocals.wav",
+      "sample_rate": 44100,
+      "frames": 308700,
+      "channels": 2,
+      "duration": 7.0,
+      "subtype": "PCM_16",
+      "sha256": "97a9f58ac7c7cd883f05c59e20246b8881ce44bd46b9ccd4a049b3afb1aa756f"
+    }
+  ],
+  "processing": {
+    "speech": "resample_poly; mono; periodic Hann; center constant pad. ASR: 16 kHz/n_fft512/hop160. TTS:22.05 kHz/n_fft1024/hop256. HTK triangular magnitude mel; visual dB relative to peak, code natural log. Window comparison fixes hop128.",
+    "music": "one official 7-second preview track; original stereo kept; visual mono averaging only; STFT 2048/hop512; no independent peak normalization",
+    "models": "original teaching diagrams derived from source code and referenced research; not trained-model results"
+  }
+}

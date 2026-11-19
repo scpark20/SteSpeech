@@ -1,0 +1,9 @@
+# Versions already present and used for synthetic verification on server 67.
+torch==2.9.1
+numpy==2.1.0
+scipy==1.16.2
+soundfile==0.14.0
+# Optional BSS Eval: museval (not installed or executed in this verification).
+# PDF authoring on Mac: WeasyPrint; it is not a model runtime dependency.
+# Optional lecture plot rebuild: matplotlib (verified locally with 3.11.2).
+# scripts/build_figures.py uses only the bundled tiny public lecture/media examples.

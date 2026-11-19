@@ -1,0 +1,12 @@
+{
+  "code/asr.py": "773dfd8bbf36fb884cf6050950682dcbefb7db3865e035e2b3a1832816133a75",
+  "code/audio.py": "3efb618b8efcafac82ed0bafb478c42a51bc6c7caccc664b1bc1e5f30849bc7e",
+  "code/data.py": "1bba1eb891eb59a7dcc01f46a0fe4e662a4ab3cf8e9f2da48f471761ac63db62",
+  "code/engine.py": "5e2b23894eeb3ee02169a1504ea40151b25362d02b5f254decb4fc102d41658a",
+  "code/metrics.py": "f99346d35a0e50501b69f629ccfc4ba5e624577795aef91c8c1090b4f2e63d67",
+  "code/separation.py": "5ffc8b026b9edf9370dff2cb2df97050bef16e857607fbc1797a8a380bec4aa0",
+  "code/tts.py": "166e4af23a3c2770a63db04b8357027eb8af0089619b620474bad4767c5e192a",
+  "code/vocoder.py": "2aa41d2a50d8871b0a0ce306a8c69f4c5140391246b62010f433411e6abd398e",
+  "scripts/ste_speech.py": "b4268f1b9e73d0780f883bffb391ea5faec4b10f0df00de9ebfd92d04256af95",
+  "scripts/verify.py": "8fca20f922700126ad93c92ec323adb05729224a5a8d589e64dfb343907ba534"
+}
