@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../lecture/figures/repository-banner.png" alt="SteSpeech — 만들면서 배우는 음성 AI. ASR, TTS, 악기 분리를 직접 구현하는 한국어 강의." width="100%">
+  <img src="../lecture/figures/repository-banner.png" alt="SteSpeech — 만들면서 배우는 음성 생성 AI. ASR, TTS, 악기 분리를 직접 구현하는 한국어 강의." width="100%">
 </p>
 
 <p align="center">
@@ -93,7 +93,7 @@
 
 ### 1. 강의록 열기
 
-[**만들면서 배우는 음성 AI · 한국어 PDF**](../lecture/SteSpeech-KO.pdf)를 먼저 읽으시면 됩니다. 저장소를 내려받은 뒤에는 [HTML 강의록](../lecture/SteSpeech-KO.html)도 로컬 브라우저에서 열 수 있습니다.
+[**만들면서 배우는 음성 생성 AI · 한국어 PDF**](../lecture/SteSpeech-KO.pdf)를 먼저 읽으시면 됩니다. 저장소를 내려받은 뒤에는 [HTML 강의록](../lecture/SteSpeech-KO.html)도 로컬 브라우저에서 열 수 있습니다.
 
 ### 2. 코드와 실행 명령 살펴보기
 

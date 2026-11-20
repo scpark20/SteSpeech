@@ -75,10 +75,11 @@
     "all_pages_rendered": true,
     "all_pages_visually_reviewed": true,
     "layout_overflow": 0,
-    "pdf_sha256": "9e18d48817bac52aad7ade839fc491948f32068fd1a75a6945d42d0ca72c471a",
+    "pdf_sha256": "2e7ec90481f0751d0cfec21d90be2642283b69b087987414ed88fa9709ab6767",
     "public_examples": "KSS 1 utterance; KsponSpeech 1 utterance; one official 7-second music preview with 4 stems",
     "training_executed": false,
     "model_dataset_evaluation_executed": false,
-    "browser_display_verified": false
+    "browser_display_verified": false,
+    "title": "만들면서 배우는 음성 생성 AI"
   }
 }

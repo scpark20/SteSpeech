@@ -145,9 +145,9 @@ def build(limit=None):
     def page(title, body, label="STE SPEECH · 한국어", css=""):
         number = len(pages) + 1
         pages.append(f'<section class="slide {css}" id="page-{number}"><div class="eyebrow">{label}</div>'
-                     f'<h1>{escape(title)}</h1>{body}<div class="footer">만들면서 배우는 음성 AI · 2026-11-20'
+                     f'<h1>{escape(title)}</h1>{body}<div class="footer">만들면서 배우는 음성 생성 AI · 2026-11-20'
                      f'<span class="page-number">{number}</span></div></section>')
-    page("만들면서 배우는 음성 AI", '<div class="chapter-mark">SteSpeech</div>'
+    page("만들면서 배우는 음성 생성 AI", '<div class="chapter-mark">SteSpeech</div>'
          '<p class="lead">한국어 음성 인식 · 한국어 음성 합성 · 음악 음원 분리</p>'
          '<p class="lead">이론과 논문, 모델 설계, 전체 실행 코드, 학습 및 평가 절차</p>'
          '<p class="small">KsponSpeech · KSS · MUSDB18-HQ<br>학습·데이터셋 평가 미실행 / 서버 67 합성 입력 구조 검증</p>', css="cover")
@@ -237,7 +237,7 @@ def build(limit=None):
                      + code_html(block), label="전체 소스 / 생략 없음", css="appendix")
         (ROOT / "lecture/source-integrity.json").write_text(json.dumps(digest, indent=2))
     output = ROOT / "lecture/SteSpeech-KO.html"
-    output.write_text('<!doctype html><html lang="ko"><meta charset="utf-8"><title>만들면서 배우는 음성 AI</title>'
+    output.write_text('<!doctype html><html lang="ko"><meta charset="utf-8"><title>만들면서 배우는 음성 생성 AI</title>'
                      '<link rel="stylesheet" href="style.css"><body>' + ''.join(pages) + '</body></html>', encoding="utf-8")
     return output, len(pages)
 
